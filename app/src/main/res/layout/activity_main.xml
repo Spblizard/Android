@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ru.apps.max.calc.MainActivity">
+
+    <TextView
+        android:text="Number1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="number|numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText1"
+        android:hint="0"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_width="wrap_content" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number|numberDecimal"
+        android:hint="0"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_alignBaseline="@+id/editText1"
+        android:layout_alignBottom="@+id/editText1"
+        android:layout_toEndOf="@+id/editText1" />
+
+    <TextView
+        android:text="Number2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/editText1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:onClick="onButtonCopyPaste"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_below="@+id/editText1"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="-"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/butMinus"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:onClick="onButtonMinus"
+        android:layout_below="@+id/textView"
+        android:layout_toEndOf="@+id/butPlus" />
+
+    <Button
+        android:text="*"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/butMult"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:onClick="onButtonMult"
+        android:layout_alignBaseline="@+id/butPlus"
+        android:layout_alignBottom="@+id/butPlus"
+        android:layout_toEndOf="@+id/butDiv" />
+
+    <Button
+        android:text="/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/butDiv"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:onClick="onButtonDiv"
+        android:layout_below="@+id/butMult"
+        android:layout_toEndOf="@+id/butPlus" />
+
+    <Button
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/butPlus"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:onClick="onButtonPlus"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text=" Factorial N1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/factButton"
+        android:onClick="onButtonFact"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_alignBottom="@+id/butDiv"
+        android:layout_toStartOf="@+id/butDiv"
+        android:layout_below="@+id/butMinus" />
+
+    <Button
+        android:onClick="onButtonSimpleNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/butSimpleNumber"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:text="SimN1"
+        android:layout_toEndOf="@+id/butDiv"
+        android:layout_below="@+id/butMinus"
+        android:layout_alignBottom="@+id/butDiv" />
+
+    <Button
+        android:text="@string/StrCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/StrCalc"
+        android:layout_below="@+id/butDiv"
+        android:layout_alignParentStart="true"
+        android:onClick="onButtonStrCalcMain"/>
+</RelativeLayout>

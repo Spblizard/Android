@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">calc</string>
+    <string name="StrCalc">Строчный калькулятор</string>
+    <string name="Answ">Ответ</string>
+</resources>
