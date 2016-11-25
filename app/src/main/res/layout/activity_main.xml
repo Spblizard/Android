@@ -11,7 +11,7 @@
     tools:context="ru.apps.max.calc.MainActivity">
 
     <TextView
-        android:text="Number1"
+        android:text="@string/n1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -23,7 +23,7 @@
         android:inputType="number|numberDecimal"
         android:ems="10"
         android:id="@+id/editText1"
-        android:hint="0"
+        android:hint="@string/nul"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
         android:layout_width="wrap_content" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number|numberDecimal"
-        android:hint="0"
+        android:hint="@string/nul"
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_alignBaseline="@+id/editText1"
@@ -40,7 +40,7 @@
         android:layout_toEndOf="@+id/editText1" />
 
     <TextView
-        android:text="Number2"
+        android:text="@string/n2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
@@ -57,7 +57,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="-"
+        android:text="@string/minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/butMinus"
@@ -67,7 +67,7 @@
         android:layout_toEndOf="@+id/butPlus" />
 
     <Button
-        android:text="*"
+        android:text="@string/multi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/butMult"
@@ -78,7 +78,7 @@
         android:layout_toEndOf="@+id/butDiv" />
 
     <Button
-        android:text="/"
+        android:text="@string/div"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/butDiv"
@@ -88,7 +88,7 @@
         android:layout_toEndOf="@+id/butPlus" />
 
     <Button
-        android:text="+"
+        android:text="@string/plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/butPlus"
@@ -98,7 +98,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text=" Factorial N1"
+        android:text="@string/fact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/factButton"
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/butSimpleNumber"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:text="SimN1"
+        android:text="@string/simple"
         android:layout_toEndOf="@+id/butDiv"
         android:layout_below="@+id/butMinus"
         android:layout_alignBottom="@+id/butDiv" />
