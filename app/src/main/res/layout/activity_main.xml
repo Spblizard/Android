@@ -26,7 +26,8 @@
         android:hint="@string/nul"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_toStartOf="@+id/textView4" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
         android:onClick="onButtonCopyPaste"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:layout_below="@+id/editText1"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/butMult" />
 
     <Button
         android:text="@string/minus"
@@ -127,4 +129,14 @@
         android:layout_below="@+id/butDiv"
         android:layout_alignParentStart="true"
         android:onClick="onButtonStrCalcMain"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:id="@+id/textView4"
+        android:onClick="onButtonCopyPaste1"
+        android:layout_above="@+id/butMinus"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView" />
 </RelativeLayout>

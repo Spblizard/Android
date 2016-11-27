@@ -120,4 +120,10 @@ public class MainActivity extends AppCompatActivity {
         s = answerText.getText().toString();
         mEdNumber1.setText(s);
     }
+
+    public void onButtonCopyPaste1(View view) {
+        String s;
+        s = answerText.getText().toString();
+        mEdNumber2.setText(s);
+    }
 }

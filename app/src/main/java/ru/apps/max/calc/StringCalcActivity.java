@@ -22,40 +22,51 @@ public class StringCalcActivity extends AppCompatActivity {
     public void onButtonStrCalc(View view) {
 
         String str, s1, s2; float a, b, c = 0;
-        int r1 = 0,r2 = 0;
+        int r = 0;
         str = editStr.getText().toString();
         int line = str.length();
+        boolean[] bl = new boolean[line];
         char[] chStr = new char[line];
         char[] ch1 = new char[line];
         char[] ch2 = new char[line];
         char op =' ';
         chStr = str.toCharArray();
+        for(int i=0;i<line;i++)
+            bl[i] = true;
         for(int i=0;i<line;i++){
             switch (chStr[i]) {
                 case '+':
+                    bl[i] = false;
                     op = chStr[i];
                     i = line;
                     break;
                 case '-':
+                    bl[i] = false;
                     op = chStr[i];
                     i = line;
                     break;
                 case '*':
+                    bl[i] = false;
                     op = chStr[i];
                     i = line;
                     break;
                 case '/':
+                    bl[i] = false;
                     op = chStr[i];
                     i = line;
                     break;
             }
-            r1++;
+            r++;
         }
-        for(int i=r1;i<line;i++)
-            ch2[r2++] = chStr[i];
-        --r1;
-        for(int i=0;i<r1;i++)
-            ch1[i] = chStr[i];
+        for(int i=0;i<line;i++){
+            if(bl[i]) {
+                if (i < r)
+                    ch1[i] = chStr[i];
+                else if(i > r || i==r)
+                    ch2[i-r] = chStr[i];
+            }
+
+        }
         s1 = String.valueOf(ch1);
         s2 = String.valueOf(ch2);
         a = Float.parseFloat(s1);
