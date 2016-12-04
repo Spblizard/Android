@@ -88,4 +88,10 @@ public class StringCalcActivity extends AppCompatActivity {
         str = Float.toString(c);
         answText.setText(str);
     }
+
+    public void onButtonCopyPasteStr(View view) {
+        String s;
+        s = answText.getText().toString();
+        editStr.setText(s);
+    }
 }
