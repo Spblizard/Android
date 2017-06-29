@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class StringCalcActivity extends AppCompatActivity {
     private TextView answText;
     private EditText editStr;
+    Calc cl;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,73 +22,17 @@ public class StringCalcActivity extends AppCompatActivity {
     }
 
     public void onButtonStrCalc(View view) {
-
-        String str, s1, s2; float a, b, c = 0;
-        int r = 0;
-        str = editStr.getText().toString();
-        int line = str.length();
-        boolean[] bl = new boolean[line];
-        char[] chStr = new char[line];
-        char[] ch1 = new char[line];
-        char[] ch2 = new char[line];
-        char op =' ';
-        chStr = str.toCharArray();
-        for(int i=0;i<line;i++)
-            bl[i] = true;
-        for(int i=0;i<line;i++){
-            switch (chStr[i]) {
-                case '+':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-                case '-':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-                case '*':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-                case '/':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-            }
-            r++;
+        if(editStr.getText().length() == 0)
+            Toast.makeText(this,"Поле пустое",Toast.LENGTH_SHORT).show();
+        else {
+            cl = new Calc();
+            String str;
+            float answ;
+            str = editStr.getText().toString();
+            str = cl.CalcStr(str);
+            //str = Float.toString(answ);
+            answText.setText(str);
         }
-        for(int i=0;i<line;i++){
-            if(bl[i]) {
-                if (i < r)
-                    ch1[i] = chStr[i];
-                else if(i > r || i==r)
-                    ch2[i-r] = chStr[i];
-            }
-
-        }
-        s1 = String.valueOf(ch1);
-        s2 = String.valueOf(ch2);
-        a = Float.parseFloat(s1);
-        b = Float.parseFloat(s2);
-        switch(op){
-            case '+':
-                c = a+b;
-                break;
-            case '-':
-                c = a-b;
-                break;
-            case '*':
-                c = a*b;
-                break;
-            case '/':
-                c = a/b;
-                break;
-        }
-        str = Float.toString(c);
-        answText.setText(str);
     }
 
     public void onButtonCopyPasteStr(View view) {

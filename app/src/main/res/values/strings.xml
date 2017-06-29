@@ -11,4 +11,6 @@
     <string name="div">/</string>
     <string name="fact">Factorial N1</string>
     <string name="simple">SimN1</string>
+    <string name="mem">Mem</string>
+    <string name="memPlus">+Mem</string>
 </resources>

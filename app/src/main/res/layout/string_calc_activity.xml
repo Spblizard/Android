@@ -5,11 +5,11 @@
     android:id="@+id/string_calc_activity">
 
     <EditText
+        android:id="@+id/editTextNumb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextNumb" />
+        android:inputType="textPhonetic|number" />
 
     <TextView
         android:layout_width="match_parent"
