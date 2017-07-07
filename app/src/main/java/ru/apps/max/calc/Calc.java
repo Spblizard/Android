@@ -1,4 +1,4 @@
-package ru.apps.max.calc;
+//package ru.apps.max.calc;
 
 public class Calc {
     private String s;
@@ -9,9 +9,12 @@ public class Calc {
     private char[] chOp;
     private char[][] chStr;
     private int checkNumb;
+    private boolean bl,mtr;
 
     public String CalcStr(String str){
         r = 0;
+	bl = true;
+	mtr = false;
         countOp = 0;
         line = str.length();
         countNumb = new int[line];
@@ -22,10 +25,10 @@ public class Calc {
                 countNumb[r++] = i;
             }
         }
-        chOp = new char[countOp];
+	chOp = new char[countOp+1];
         for(int i =0;i<countOp;i++)
                 chOp[i] = str.charAt(countNumb[i]);
-        number = new float[countOp+1];
+        number = new float[countOp+2];
         strNumber =new String[countOp+1];
         chStr = new char[countOp+1][line];
         for(int i=0;i<=countOp;i++){
@@ -40,44 +43,61 @@ public class Calc {
             strNumber[i] = String.valueOf(chStr[i]);
         for(int i=0;i<=countOp;i++)
             number[i] = Float.parseFloat(strNumber[i]);
-        while(countOp != 0){
+        while(bl){
+		for(int i=0;i<=countOp;i++){
+			if(chOp[i] == '-'){
+				number[i+1] = number[i+1]*(-1);
+				mtr = true;
+		}
+		}
             for(int i=0;i<=countOp;i++){
                 if(chOp[i] == '*') {
                     number[i] = number[i] * number[i + 1];
                     checkNumb = i;
+		    Resize();
                 }
             }
-            Resize();
             for(int i=0;i<=countOp;i++){
                 if(chOp[i] == '/'){
                     number[i] = number[i] / number[i + 1];
                     checkNumb = i;
+		    Resize();
                 }
             }
-            Resize();
             for(int i=0;i<=countOp;i++){
                 if(chOp[i] == '+'){
                     number[i] = number[i] + number[i + 1];
                     checkNumb = i;
+		    Resize();
                 }
             }
-            Resize();
             for(int i=0;i<=countOp;i++){
                 if(chOp[i] == '-'){
-                    number[i] = number[i] - number[i + 1];
+			if(mtr)
+				number[i] = number[i] + number[i + 1];
+			else
+                    		number[i] = number[i] - number[i + 1];
                     checkNumb = i;
+		    Resize();
                 }
             }
-            Resize();
         }
         s = String.valueOf(number[0]);
         return s;
     }
     private void Resize() {
-        for (int i = checkNumb; i <= countOp; i++) {
-            number[i + 1] = number[i + 2];
-            chOp[i] = chOp[i + 1];
-            countOp--;
-        }
+	    if(countOp == 1){
+		    countOp--;
+    		    bl = false;
+	    }
+	    else if(countOp > 1){
+       	 	for (int i = checkNumb; i <= countOp; i++) {
+            			number[i + 1] = number[i + 2];
+            		chOp[i] = chOp[i + 1];
+            		countOp--;
+		}
+	    }
+	    else
+		    bl = false;
     }
 }
