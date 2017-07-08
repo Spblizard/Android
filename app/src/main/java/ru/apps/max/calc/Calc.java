@@ -1,35 +1,26 @@
 package ru.apps.max.calc;
 
 public class Calc {
-
-    private boolean[] bl;
-    private String s1,s2;
+    private String s;
     private String[] strNumber;
-    private float a, b, c;
     private int r, line, countOp;
     private int[] countNumb;
-    private char op;
     private float[] number;
-    private char[] chOp, ch1, ch2;
+    private char[] chOp;
     private char[][] chStr;
+    private int checkNumb;
 
     public String CalcStr(String str){
-
-        c = 0;
         r = 0;
         countOp = 0;
         line = str.length();
-        bl = new boolean[line];
         countNumb = new int[line];
         for(int i=0;i<line;i++)
         {
             if(str.charAt(i) == '+' || str.charAt(i) == '-' || str.charAt(i) == '*' || str.charAt(i) == '/' ) {
-                bl[i] = true;
                 countOp++;
                 countNumb[r++] = i;
             }
-            else
-                bl[i] = false;
         }
         chOp = new char[countOp];
         for(int i =0;i<countOp;i++)
@@ -45,67 +36,48 @@ public class Calc {
             else
                 str.getChars(countNumb[i-1]+1,countNumb[i],chStr[i],0);
         }
-        strNumber[0] = String.valueOf(chStr[2]);
-/*
-        ch1 = new char[line];
-        ch2 = new char[line];
-        op = ' ';
-        chStr = str.toCharArray();
-        for (int i = 0; i < line; i++)
-            bl[i] = true;
-        for (int i = 0; i < line; i++) {
-            switch (chStr[i]) {
-                case '+':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-                case '-':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-                case '*':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
-                case '/':
-                    bl[i] = false;
-                    op = chStr[i];
-                    i = line;
-                    break;
+        for(int i=0;i<=countOp;i++)
+            strNumber[i] = String.valueOf(chStr[i]);
+        for(int i=0;i<=countOp;i++)
+            number[i] = Float.parseFloat(strNumber[i]);
+        while(countOp != 0){
+            for(int i=0;i<=countOp;i++){
+                if(chOp[i] == '*') {
+                    number[i] = number[i] * number[i + 1];
+                    checkNumb = i;
+                }
             }
-            r++;
-        }
-        for (int i = 0; i < line; i++) {
-            if (bl[i]) {
-                if (i < r)
-                    ch1[i] = chStr[i];
-                else if (i > r || i == r)
-                    ch2[i - r] = chStr[i];
+            Resize();
+            for(int i=0;i<=countOp;i++){
+                if(chOp[i] == '/'){
+                    number[i] = number[i] / number[i + 1];
+                    checkNumb = i;
+                }
             }
-
+            Resize();
+            for(int i=0;i<=countOp;i++){
+                if(chOp[i] == '+'){
+                    number[i] = number[i] + number[i + 1];
+                    checkNumb = i;
+                }
+            }
+            Resize();
+            for(int i=0;i<=countOp;i++){
+                if(chOp[i] == '-'){
+                    number[i] = number[i] - number[i + 1];
+                    checkNumb = i;
+                }
+            }
+            Resize();
         }
-        s1 = String.valueOf(ch1);
-        s2 = String.valueOf(ch2);
-        a = Float.parseFloat(s1);
-        b = Float.parseFloat(s2);
-        switch (op) {
-            case '+':
-                c = a + b;
-                break;
-            case '-':
-                c = a - b;
-                break;
-            case '*':
-                c = a * b;
-                break;
-            case '/':
-                c = a / b;
-                break;
+        s = String.valueOf(number[0]);
+        return s;
+    }
+    private void Resize() {
+        for (int i = checkNumb; i <= countOp; i++) {
+            number[i + 1] = number[i + 2];
+            chOp[i] = chOp[i + 1];
+            countOp--;
         }
-        */
-        return strNumber[0];
     }
 }
