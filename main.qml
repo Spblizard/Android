@@ -12,10 +12,10 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        Page1Form {
+        MainCalc {
         }
 
-        Page2Form {
+        StringCalc {
         }
     }
 
@@ -24,10 +24,10 @@ ApplicationWindow {
         currentIndex: swipeView.currentIndex
 
         TabButton {
-            text: qsTr("Page 1")
+            text: qsTr("Main")
         }
         TabButton {
-            text: qsTr("Page 2")
+            text: qsTr("String")
         }
     }
 }
