@@ -3,14 +3,17 @@ import QtQuick.Controls 2.2
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Tabs")
+    width: 720 / 2
+    height: 1280 / 2
+    title: qsTr("Adroid-calc")
 
     SwipeView {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
+
+        property int mainWidth: parent.width
+        property int mainHeight: parent.height
 
         MainCalc {
         }
