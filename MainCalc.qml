@@ -21,8 +21,9 @@ Item {
             top: parent.top
             topMargin: parent.height / 10
             left: parent.left
+            leftMargin: height / 5
         }
-        width: parent.width / 2
+        width: parent.width / 2.19
         height: parent.height / 11
         font.pointSize: height / 2
     }
@@ -45,9 +46,60 @@ Item {
             left: number1.right
             leftMargin: number1.height / 5
             right: parent.right
+            rightMargin: number1.height / 5
         }
         height: number1.height
         font.pointSize: height / 2
+    }
+
+    Button {
+        id: buttonPlus
+        anchors {
+            top: number1.bottom
+            left: number1.left
+        }
+        width: number1.width / 2.14
+        height: number1.height
+        text: "+"
+        font.pointSize: number1.font.pointSize
+    }
+
+    Button {
+        id: buttonMinus
+        anchors {
+            top: buttonPlus.top
+            left: buttonPlus.right
+            leftMargin: number1.height / 5
+            right: number1.right
+        }
+        height: buttonPlus.height
+        text: "-"
+        font.pointSize: number1.font.pointSize
+    }
+
+     Button {
+        id: buttonAdd
+        anchors {
+            top: number2.bottom
+            left: number2.left
+        }
+        width: number2.width / 2.14
+        height: number2.height
+        text: "*"
+        font.pointSize: number1.font.pointSize
+    }
+
+    Button {
+        id: buttonDiv
+        anchors {
+            top: buttonAdd.top
+            left: buttonAdd.right
+            leftMargin: number2.height / 5
+            right: number2.right
+        }
+        height: buttonPlus.height
+        text: "/"
+        font.pointSize: number1.font.pointSize
     }
 
 }
