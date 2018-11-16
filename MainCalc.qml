@@ -4,6 +4,27 @@ import QtQuick.Controls 2.2
 Item {
     id: root
 
+    Connections {
+        target: backend
+
+        onSignalQmlAnswer: {
+           labelAnswer.text = answ
+        }
+    }
+
+    Label {
+        id: labelAnswer
+        anchors {
+            right: parent.right
+            rightMargin: parent.width / 2
+            bottom: parent.bottom
+            bottomMargin: parent.height / 2
+        }
+        font.pointSize: number1.font.pointSize
+        font.family: "Arial"
+        text: "0"
+    }
+
     Label {
         id: labelNumber1
         anchors {
@@ -62,6 +83,7 @@ Item {
         height: number1.height
         text: "+"
         font.pointSize: number1.font.pointSize
+        onClicked: backend.calculation(number1.text, number2.text, text)
     }
 
     Button {
@@ -75,6 +97,7 @@ Item {
         height: buttonPlus.height
         text: "-"
         font.pointSize: number1.font.pointSize
+        onClicked: backend.calculation(number1.text, number2.text, text)
     }
 
      Button {
@@ -87,6 +110,7 @@ Item {
         height: number2.height
         text: "*"
         font.pointSize: number1.font.pointSize
+        onClicked: backend.calculation(number1.text, number2.text, text)
     }
 
     Button {
@@ -100,6 +124,7 @@ Item {
         height: buttonPlus.height
         text: "/"
         font.pointSize: number1.font.pointSize
+        onClicked: backend.calculation(number1.text, number2.text, text)
     }
 
 }
